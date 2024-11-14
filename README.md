@@ -59,6 +59,8 @@ The login system allows users to access their profiles and upload videos. The us
 - Allow users to search videos based on keywords, tags, and titles.
 Future Development Features
 
+## Future Development Features
+
 1. User Notification System:
 
 Users will receive instant notifications when they get likes, comments, or subscribers on their videos.
