@@ -32,4 +32,29 @@ The login system allows users to access their profiles and upload videos. The us
 - **Login Page:** Users will be asked to provide their username and password.
 - **Session Management:** After successful login, the user session will be maintained using a token, allowing the user to stay logged in until they log out.
 - **Forgot Password:** Option to reset the password if the user forgets it.
+## Video Upload System
+- Create a form for users to upload their videos, including fields for title, description, and tags.
+- Upload the video file to the server and store its information in the database.
+- Ensure that the video upload process supports various formats (MP4, MKV, etc.).
+## Video Streaming System
+- Implement video streaming functionality to allow users to watch uploaded videos.
+- Ensure video streaming supports formats such as MP4, and consider using HLS for smooth playback.
+- Provide the option for video resolution adjustment based on user’s internet speed.
+## Comment and Like System
+- Add a comment system to each video where users can leave their feedback.
+- Implement a like and dislike system for users to rate the videos.
+- Ensure the comment section allows users to reply to other comments.
+## Monetization System
+- Integrate AdSense or another ad network to display ads on videos.
+- Create a monetization model that allows video creators to earn money based on views, clicks, or ad impressions.
+- Provide video creators with a way to track their earnings.
+
+## Dashboard and Analytics
+- Create a dashboard where users can view their video statistics (views, likes, comments).
+- Provide a detailed analytics page to track the performance of each video over time.
+- Include earnings reports if monetization is enabled.
+## Search Feature
+- Add a search bar allowing users to search for videos, channels, and categories.
+- Implement search filters to narrow down results by views, date, or relevance.
+- Allow users to search videos based on keywords, tags, and titles.
 
