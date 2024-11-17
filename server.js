@@ -41,6 +41,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Dummy database (replace with actual database)
 const users = [];
 
+Server is running on http://localhost:3000
+
 // Login Endpoint
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
@@ -57,3 +59,6 @@ app.post('/login', async (req, res) => {
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
 });
+
+node server.js 
+  
