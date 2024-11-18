@@ -1,64 +1,72 @@
+node server.js
+
 const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
+const mysql = require('mysql2');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const app = express();
+app.use(express.json());
 
-app.use(bodyParser.json());
+// MySQL connection setup
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
 
-// Dummy database
-const users = [];
+db.connect(err => {
+  if (err) throw err;
+  console.log('Connected to the database!');
+});
 
-// User Registration
+// Register User Route
 app.post('/register', async (req, res) => {
-  const { username, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
-  users.push({ username, password: hashedPassword });
-  res.send('User registered successfully');
+  const { username, email, password } = req.body;
+
+  // Check if user already exists
+  db.query('SELECT * FROM users WHERE email = ?', [email], async (err, result) => {
+    if (err) throw err;
+    if (result.length > 0) return res.status(400).json({ message: 'User already exists!' });
+
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Insert new user
+    db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', 
+      [username, email, hashedPassword], (err, result) => {
+        if (err) throw err;
+        res.status(201).json({ message: 'User created successfully!' });
+      });
+  });
 });
 
-// User Login
-app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find((u) => u.username === username);
-  if (user && (await bcrypt.compare(password, user.password))) {
-    res.send('Login successful');
-  } else {
-    res.status(401).send('Invalid username or password');
-  }
+// Login User Route
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  // Check if user exists
+  db.query('SELECT * FROM users WHERE email = ?', [email], async (err, result) => {
+    if (err) throw err;
+    if (result.length === 0) return res.status(400).json({ message: 'User not found!' });
+
+    // Compare password
+    const validPassword = await bcrypt.compare(password, result[0].password);
+    if (!validPassword) return res.status(400).json({ message: 'Invalid password!' });
+
+    // Generate JWT Token
+    const token = jwt.sign({ userId: result[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+    res.json({ message: 'Logged in successfully!', token });
+  });
 });
 
-app.listen(3000, () => console.log('Server is running on port 3000'));
-server.js বা app.js
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Dummy database (replace with actual database)
-const users = [];
-
-Server is running on http://localhost:3000
-
-// Login Endpoint
-app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find(u => u.username === username);
-  
-  if (user && await bcrypt.compare(password, user.password)) {
-    res.send('Login successful!');
-  } else {
-    res.status(401).send('Invalid username or password.');
-  }
-});
-
-// Listen on port 3000
+// Start server
 app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+  console.log('Server running on port 3000');
 });
 
-node server.js 
-  
