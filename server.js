@@ -24,24 +24,37 @@ db.connect(err => {
   console.log('Connected to the database!');
 });
 
-
-// Login User Route
+// Login route
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
-  // Check if user exists
-  db.query('SELECT * FROM users WHERE email = ?', [email], async (err, result) => {
-    if (err) throw err;
-    if (result.length === 0) return res.status(400).json({ message: 'User not found!' });
+  // Check if email and password are provided
+  if (!email || !password) {
+    return res.status(400).send('Please provide email and password.');
+  }
 
-    // Compare password
-    const validPassword = await bcrypt.compare(password, result[0].password);
-    if (!validPassword) return res.status(400).json({ message: 'Invalid password!' });
+  // Find the user in the database
+  const query = 'SELECT * FROM users WHERE email = ?';
+  db.query(query, [email], async (err, results) => {
+    if (err) {
+      console.error('Error fetching user:', err);
+      return res.status(500).send('An error occurred while logging in.');
+    }
 
-    // Generate JWT Token
-    const token = jwt.sign({ userId: result[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    if (results.length === 0) {
+      return res.status(404).send('User not found.');
+    }
 
-    res.json({ message: 'Logged in successfully!', token });
+    const user = results[0];
+
+    // Compare the password with the hashed password in the database
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).send('Invalid email or password.');
+    }
+
+    // If valid, respond with success message (or a token for further authentication)
+    res.status(200).send('Login successful!');
   });
 });
 
