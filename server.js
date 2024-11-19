@@ -126,3 +126,44 @@ app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
+// Signup route
+app.post('/signup', async (req, res) => {
+  const { username, email, password } = req.body;
+
+  // Check if all fields are provided
+  if (!username || !email || !password) {
+    return res.status(400).send('Please fill in all fields.');
+  }
+
+  try {
+    // Check if the user already exists
+    const checkUserQuery = 'SELECT * FROM users WHERE email = ?';
+    db.query(checkUserQuery, [email], async (err, results) => {
+      if (err) {
+        console.error('Error checking user:', err);
+        return res.status(500).send('An error occurred.');
+      }
+
+      if (results.length > 0) {
+        return res.status(409).send('User already exists.');
+      }
+
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      // Insert the user into the database
+      const insertQuery = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
+      db.query(insertQuery, [username, email, hashedPassword], (err, result) => {
+        if (err) {
+          console.error('Error inserting user:', err);
+          return res.status(500).send('An error occurred while signing up.');
+        }
+
+        res.status(201).send('Signup successful!');
+      });
+    });
+  } catch (error) {
+    console.error('Error during signup:', error);
+    res.status(500).send('Internal server error.');
+  }
+});
