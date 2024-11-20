@@ -130,3 +130,118 @@ h1 {
   color: #333;
   margin-bottom: 20px;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* home page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+header .logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header .search-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+header .search-container input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+header .search-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+header .user-icons img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+section {
+    padding: 20px;
+}
+
+section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.video-card {
+    width: 30%;
+    text-align: center;
+}
+
+.video-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.video-card img:hover {
+    transform: scale(1.05);
+}
+
+.video-card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer .footer-icons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
