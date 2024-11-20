@@ -1,4 +1,42 @@
 PHP
+<?php
+// ডেটাবেজ সংযোগের জন্য কোড
+$conn = new mysqli('localhost', 'root', '', 'playtube');
+
+// সংযোগ সঠিক না হলে, ত্রুটি মেসেজ দেখান
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} else {
+    echo "Connection successful!"; // কনফার্মেশন মেসেজ
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // SQL কোড
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $result = $conn->query($sql);
+
+    if ($result) {
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['password'])) {
+                echo "Login successful!";
+            } else {
+                echo "Invalid password.";
+            }
+        } else {
+            echo "No user found.";
+        }
+    } else {
+        echo "Error: " . $conn->error;
+    }
+
+    $conn->close(); // ডেটাবেজ সংযোগ বন্ধ
+}
+?>
+    
 <!-- login.php -->
 <!DOCTYPE html>
 <html lang="en">
