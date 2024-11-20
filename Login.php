@@ -25,39 +25,29 @@ PHP
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        // আপনার লগইন লজিক এখানে লিখুন
-        if ($username == "admin" && $password == "password123") {
-            echo "Login successful!";
-        } else {
-            echo "Invalid username or password.";
+        // ডেটাবেজ সংযোগ
+        $conn = new mysqli('localhost', 'root', '', 'playtube');
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
+
+        // ইউজারনেম দিয়ে ডেটাবেজে খোঁজা
+        $sql = "SELECT * FROM users WHERE username='$username'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // ইউজার পাওয়া গেলে পাসওয়ার্ড চেক করা
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['password'])) {
+                echo "Login successful!";
+            } else {
+                echo "Invalid password.";
+            }
+        } else {
+            echo "No user found.";
+        }
+
+        $conn->close();
     }
     ?>
 </body>
 </html>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // ডেটাবেজ সংযোগ
-    $conn = new mysqli('localhost', 'root', '', 'playtube');
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * FROM users WHERE username='$username'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            echo "Login successful!";
-        } else {
-            echo "Invalid password.";
-        }
-    } else {
-        echo "No user found.";
-    }
-    $conn->close();
-}
-?>
