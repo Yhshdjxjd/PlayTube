@@ -21,3 +21,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+<form action="signup.php" method="POST">
