@@ -31,69 +31,76 @@ HTML
 </body>
 </html>
 
-*Home Page*
+*Platform Home page *
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlayTube - Advanced Home</title>
+    <title>PlayTube - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="logo.png" alt="PlayTube Logo">
+            <img src="logo.png" alt="Logo">
             <span>PlayTube</span>
         </div>
-        <div class="search-container">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
-        </div>
-        <div class="user-icons">
-            <img src="notifications-icon.png" alt="Notifications">
-            <img src="profile-icon.png" alt="Profile">
+        <div class="header-icons">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <div class="icons">
+                <i class="notification-icon">🔔</i>
+                <i class="profile-icon">👤</i>
+            </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <section class="recommended">
-        <h2>Recommended for You</h2>
-        <div class="video-container">
-            <div class="video-card">
-                <img src="video-thumbnail1.jpg" alt="Video 1">
-                <h3>Video Title 1</h3>
+    <main>
+        <section class="video-section">
+            <!-- First Long Video -->
+            <div class="long-video">
+                <img src="long-video-thumbnail.jpg" alt="Long Video">
+                <h2>Video Title</h2>
             </div>
-            <div class="video-card">
-                <img src="video-thumbnail2.jpg" alt="Video 2">
-                <h3>Video Title 2</h3>
-            </div>
-            <!-- More video cards here -->
-        </div>
-    </section>
 
-    <section class="trending">
-        <h2>Trending Videos</h2>
-        <div class="video-container">
-            <div class="video-card">
-                <img src="video-thumbnail3.jpg" alt="Video 3">
-                <h3>Trending Video 1</h3>
+            <!-- Short Videos -->
+            <div class="short-videos">
+                <div class="short-video">
+                    <img src="short-video1.jpg" alt="Short Video 1">
+                    <p>Short Video 1</p>
+                </div>
+                <div class="short-video">
+                    <img src="short-video2.jpg" alt="Short Video 2">
+                    <p>Short Video 2</p>
+                </div>
+                <div class="short-video">
+                    <img src="short-video3.jpg" alt="Short Video 3">
+                    <p>Short Video 3</p>
+                </div>
+                <div class="short-video">
+                    <img src="short-video4.jpg" alt="Short Video 4">
+                    <p>Short Video 4</p>
+                </div>
             </div>
-            <div class="video-card">
-                <img src="video-thumbnail4.jpg" alt="Video 4">
-                <h3>Trending Video 2</h3>
-            </div>
-            <!-- More video cards here -->
-        </div>
-    </section>
 
+            <!-- Second Long Video -->
+            <div class="long-video">
+                <img src="long-video2-thumbnail.jpg" alt="Long Video">
+                <h2>Another Long Video</h2>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
     <footer>
         <div class="footer-icons">
-            <img src="home-icon.png" alt="Home">
-            <img src="subscriptions-icon.png" alt="Subscriptions">
-            <img src="upload-icon.png" alt="Upload">
-            <img src="history-icon.png" alt="History">
+            <i class="home-icon">🏠</i>
+            <i class="shorts-icon">🎥</i>
+            <i class="upload-icon">➕</i>
+            <i class="subscriptions-icon">📅</i>
+            <i class="downloads-icon">⬇️</i>
         </div>
     </footer>
 </body>
