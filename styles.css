@@ -136,20 +136,25 @@ h1 {
     padding: 0;
     box-sizing: border-box;
 }
-/* home page */
+
+*platform home page styling*
+
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f9f9f9;
-    color: #333;
 }
 
+/* Header Section */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #222;
     padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 header .logo {
@@ -168,80 +173,120 @@ header .logo span {
     font-weight: bold;
 }
 
-header .search-container {
-    flex-grow: 1;
+header .header-icons {
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
-header .search-container input {
-    width: 70%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-header .search-container button {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #ff0000;
-    color: white;
+header .search-bar {
+    padding: 8px;
+    margin-right: 20px;
+    border-radius: 20px;
     border: none;
+    width: 200px;
+}
+
+header .icons i {
+    margin-left: 20px;
+    font-size: 24px;
     cursor: pointer;
 }
 
-header .user-icons img {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-}
-
-section {
+/* Main Content Section */
+main {
     padding: 20px;
 }
 
-section h2 {
-    font-size: 22px;
-    margin-bottom: 15px;
+/* Video Section */
+.video-section {
+    margin-bottom: 40px;
 }
 
-.video-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+/* Long Video */
+.long-video {
+    margin-bottom: 20px;
 }
 
-.video-card {
-    width: 30%;
-    text-align: center;
-}
-
-.video-card img {
+.long-video img {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    transition: transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.video-card img:hover {
-    transform: scale(1.05);
-}
-
-.video-card h3 {
+.long-video h2 {
+    font-size: 24px;
+    color: #333;
     margin-top: 10px;
-    font-size: 18px;
 }
 
-footer {
+/* Short Videos */
+.short-videos {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-footer .footer-icons img {
-    width: 30px;
-    height: 30px;
+.short-video {
+    width: 23%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.short-video img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+.short-video p {
+    margin-top: 10px;
+    color: #555;
+    font-size: 16px;
+}
+
+/* Footer Section */
+footer {
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer .footer-icons i {
+    margin: 0 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .search-bar {
+        width: 150px;
+    }
+
+    header .icons i {
+        font-size: 20px;
+    }
+
+    .short-video {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-icons {
+        margin-top: 10px;
+    }
+
+    .short-video {
+        width: 100%;
+    }
 }
