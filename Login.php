@@ -1,20 +1,19 @@
-PHP
 <?php
-// ডেটাবেজ সংযোগের জন্য কোড
+// Code for database connection
 $conn = new mysqli('localhost', 'root', '', 'playtube');
 
-// সংযোগ সঠিক না হলে, ত্রুটি মেসেজ দেখান
+// If the connection is not successful, display an error message
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } else {
-    echo "Connection successful!"; // কনফার্মেশন মেসেজ
+    echo "Connection successful!"; // Confirmation message
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // SQL কোড
+    // SQL code
     $sql = "SELECT * FROM users WHERE username='$username'";
     $result = $conn->query($sql);
 
@@ -33,12 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $conn->error;
     }
 
-    $conn->close(); // ডেটাবেজ সংযোগ বন্ধ
+    $conn->close(); // Close database connection
 }
 ?>
-    
-<!-- login.php -->
-<!DOCTYPE html>
+
+      <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,17 +61,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        // ডেটাবেজ সংযোগ
+        // Database connection
         $conn = new mysqli('localhost', 'root', '', 'playtube');
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // ইউজারনেম দিয়ে ডেটাবেজে খোঁজা
+        // Search in the database with username
         $sql = "SELECT * FROM users WHERE username='$username'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-            // ইউজার পাওয়া গেলে পাসওয়ার্ড চেক করা
+            // If user is found, check the password
             $row = $result->fetch_assoc();
             if (password_verify($password, $row['password'])) {
                 echo "Login successful!";
@@ -89,3 +87,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
 </body>
 </html>
+
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Database connection
+    $conn = new mysqli('localhost', 'root', '', 'playtube');
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            // Redirect to home page after successful login
+            header("Location: home.php");
+            exit();
+        } else {
+            echo "Invalid password.";
+        }
+    } else {
+        echo "No user found.";
+    }
+    $conn->close();
+}
+?>
