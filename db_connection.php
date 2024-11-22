@@ -20,3 +20,17 @@ try {
     echo "Database connection failed: " . $e->getMessage();
 }
 ?>
+
+<?php
+// Include the database connection file
+include 'db_connection.php'; // If the file is in a subfolder, use the correct path, like 'includes/db_connection.php'
+
+// Database operation code will be here
+$sql = "SELECT * FROM users"; // Example query to fetch all users
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
+// Fetch results
+$results = $stmt->fetchAll();
+print_r($results);
+?>
