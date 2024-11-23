@@ -31,6 +31,33 @@ HTML
 </body>
 </html>
 
+*database connection*
+<?php
+// Include database connection
+include 'db_connection.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayTube - Home</title>
+</head>
+<body>
+    <h1>Welcome to PlayTube</h1>
+
+    <!-- Display users -->
+    <h2>Registered Users</h2>
+    <ul>
+        <?php
+        foreach ($results as $user) {
+            echo "<li>" . htmlspecialchars($user['username']) . "</li>";
+        }
+        ?>
+    </ul>
+</body>
+</html>
+
 *Platform Home page *
 <!DOCTYPE html>
 <html lang="en">
