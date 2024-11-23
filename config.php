@@ -1,18 +1,15 @@
 <?php
-// Database connection configuration
-$servername = "localhost"; // Server name or IP address
-$username = "your_username"; // Database username
-$password = "your_password"; // Database password
-$database = "PlayTube"; // Name of your database
+// Database configuration details
+$host = 'localhost';         // Your MySQL server address
+$username = 'root';          // Your MySQL username
+$password = '';              // Your MySQL password (leave blank if no password)
+$database = 'PlayTube';      // Your database name
 
-// Create a connection to the database
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error); // Exit if the connection fails
+try {
+    // Establish a PDO connection
+    $conn = new PDO("mysql:host=$host;dbname=$database", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
-
-// If connection is successful, print a confirmation message
-echo "Connection successful!";
 ?>
