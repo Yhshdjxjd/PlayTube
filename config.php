@@ -13,3 +13,6 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 ?>
+<?php
+echo "Database connection successful!";
+?>
