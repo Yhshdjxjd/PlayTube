@@ -16,3 +16,17 @@ try {
 <?php
 echo "Database connection successful!";
 ?>
+<?php
+// Include the database configuration
+include 'config.php';
+
+try {
+    // Run a test query
+    $sql = "SELECT 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    echo "Database connection and query successful!";
+} catch (PDOException $e) {
+    echo "Test query failed: " . $e->getMessage();
+}
+?>
