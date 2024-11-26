@@ -58,77 +58,66 @@ include 'db_connection.php';
 </body>
 </html>
 
-*Platform Home page *
+/*home page*/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlayTube - Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube-Style Homepage</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo">
-            <span>PlayTube</span>
+  <!-- Top Navigation Bar -->
+  <div class="topbar">
+    <h1>MyPlatform</h1>
+    <input type="text" placeholder="Search for videos...">
+    <img src="profile_icon.png" alt="Profile" class="profile-icon">
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="category-tabs">
+    <button>All</button>
+    <button>New to You</button>
+    <button>News</button>
+    <button>Trending</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Long Video Section -->
+    <div class="video-thumbnail">
+      <img src="long_video.jpg" alt="Main Video" class="large-video">
+      <h3>EP-1055: Popular Show</h3>
+    </div>
+
+    <!-- Shorts Section -->
+    <div class="shorts-section">
+      <h2>Shorts</h2>
+      <div class="shorts-grid">
+        <div class="short">
+          <img src="short_video_1.jpg" alt="Short 1">
         </div>
-        <div class="header-icons">
-            <input type="text" class="search-bar" placeholder="Search...">
-            <div class="icons">
-                <i class="notification-icon">🔔</i>
-                <i class="profile-icon">👤</i>
-            </div>
+        <div class="short">
+          <img src="short_video_2.jpg" alt="Short 2">
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <section class="video-section">
-            <!-- First Long Video -->
-            <div class="long-video">
-                <img src="long-video-thumbnail.jpg" alt="Long Video">
-                <h2>Video Title</h2>
-            </div>
-
-            <!-- Short Videos -->
-            <div class="short-videos">
-                <div class="short-video">
-                    <img src="short-video1.jpg" alt="Short Video 1">
-                    <p>Short Video 1</p>
-                </div>
-                <div class="short-video">
-                    <img src="short-video2.jpg" alt="Short Video 2">
-                    <p>Short Video 2</p>
-                </div>
-                <div class="short-video">
-                    <img src="short-video3.jpg" alt="Short Video 3">
-                    <p>Short Video 3</p>
-                </div>
-                <div class="short-video">
-                    <img src="short-video4.jpg" alt="Short Video 4">
-                    <p>Short Video 4</p>
-                </div>
-            </div>
-
-            <!-- Second Long Video -->
-            <div class="long-video">
-                <img src="long-video2-thumbnail.jpg" alt="Long Video">
-                <h2>Another Long Video</h2>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-icons">
-            <i class="home-icon">🏠</i>
-            <i class="shorts-icon">🎥</i>
-            <i class="upload-icon">➕</i>
-            <i class="subscriptions-icon">📅</i>
-            <i class="downloads-icon">⬇️</i>
+        <div class="short">
+          <img src="short_video_3.jpg" alt="Short 3">
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="bottom-nav">
+    <button>Home</button>
+    <button>Shorts</button>
+    <button>+</button>
+    <button>Subscriptions</button>
+    <button>Library</button>
+  </div>
+
+  <!-- Link to JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
