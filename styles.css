@@ -241,3 +241,92 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+
+/*profile style*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* black bagrauand */
+    color: #fff;
+}
+
+.profile-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profile-image {
+    margin-right: 20px;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: orange;
+    color: #000;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+.manage-btn {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.manage-btn:hover {
+    background-color: #555;
+}
+
+.create-section {
+    padding: 20px;
+}
+
+.create-btn {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.create-btn:hover {
+    background-color: #cc0000;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-around;
+    background-color: #222;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-icons span {
+    color: #fff;
+    cursor: pointer;
+}
