@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
 </head>
 <body>
     <div class="profile-container">
+        <!-- Profile Header -->
         <header>
             <div class="profile-header">
                 <div class="profile-image">
@@ -21,24 +23,32 @@
             </div>
         </header>
 
-        <main>
+        <!-- Manage Section with Icons -->
+        <div class="manage-section">
             <button class="manage-btn">Manage Videos</button>
-            <div class="create-section">
-                <p>Create content on any device</p>
-                <p>Upload and record at home or on the go. Everything that you make public will appear here.</p>
-                <button class="create-btn">Create</button>
+            <div class="edit-icons">
+                <i class="fas fa-edit"></i> <!-- Edit Icon -->
+                <i class="fas fa-camera"></i> <!-- Camera Icon -->
             </div>
-        </main>
+        </div>
 
-        <footer>
-            <div class="footer-icons">
-                <span>Home</span>
-                <span>Shorts</span>
-                <span>+</span>
-                <span>Subscriptions</span>
-                <span>You</span>
-            </div>
-        </footer>
+        <!-- Create Section -->
+        <div class="create-section">
+            <p>Create content on any device</p>
+            <p>Upload and record at home or on the go. Everything that you make public will appear here.</p>
+            <button class="create-btn">Create</button>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-icons">
+            <span>Home</span>
+            <span>Shorts</span>
+            <span>+</span>
+            <span>Subscriptions</span>
+            <span>You</span>
+        </div>
+    </footer>
 </body>
 </html>
