@@ -6,6 +6,105 @@
     <title>Profile Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* কালো ব্যাকগ্রাউন্ড */
+            color: #fff;
+        }
+        .profile-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .profile-image .circle {
+            width: 70px;
+            height: 70px;
+            background-color: orange;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #000;
+        }
+        .profile-info h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .profile-info p {
+            margin: 3px 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+        .manage-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .manage-btn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .manage-btn:hover {
+            background-color: #444;
+        }
+        .edit-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .edit-icons i {
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .edit-icons i:hover {
+            color: orange;
+        }
+        .create-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .create-btn {
+            background-color: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .create-btn:hover {
+            background-color: #ddd;
+        }
+        .footer-icons {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #111;
+        }
+        .footer-icons span {
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .footer-icons span:hover {
+            color: orange;
+        }
+    </style>
 </head>
 <body>
     <div class="profile-container">
