@@ -11,11 +11,15 @@
             font-family: Arial, sans-serif;
             background-color: #000; /* কালো ব্যাকগ্রাউন্ড */
             color: #fff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
         .profile-container {
             max-width: 500px;
             margin: auto;
             padding: 20px;
+            flex: 1;
         }
         .profile-header {
             display: flex;
@@ -94,6 +98,9 @@
             justify-content: space-around;
             padding: 10px 0;
             background-color: #111;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
         .footer-icons span {
             color: #fff;
