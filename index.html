@@ -58,21 +58,113 @@ include 'db_connection.php';
 </body>
 </html>
 
-/*home page*/
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube-Style Homepage</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Dark Mode Homepage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #111;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+    }
+    .topbar-left img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    .topbar-left h1 {
+      font-size: 20px; /* ছোট করে দেওয়া হয়েছে */
+      margin: 0;
+    }
+    .topbar input[type="text"] {
+      width: 50%; /* Adjusted width for smaller search bar */
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #333;
+      background-color: #222;
+      color: #fff;
+    }
+    .category-tabs {
+      display: flex;
+      overflow-x: auto;
+      background-color: #111;
+      padding: 10px 0;
+    }
+    .category-tabs button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .main-content {
+      padding: 10px 20px;
+    }
+    .video-thumbnail img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .shorts-section {
+      margin-top: 20px;
+    }
+    .shorts-grid {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+    }
+    .shorts-grid img {
+      width: 100px;
+      height: 180px;
+      border-radius: 10px;
+    }
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      background-color: #111;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .bottom-nav button {
+      background: none;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+    }
+    .bottom-nav button img {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
 </head>
 <body>
   <!-- Top Navigation Bar -->
   <div class="topbar">
-    <h1>MyPlatform</h1>
-    <input type="text" placeholder="Search for videos...">
-    <img src="profile_icon.png" alt="Profile" class="profile-icon">
+    <div class="topbar-left">
+      <img src="logo.png" alt="MyPlatform Logo">
+      <h1>MyPlatform</h1>
+    </div>
+    <input type="text" placeholder="Search...">
+    <img src="profile_icon.png" alt="Profile">
   </div>
 
   <!-- Category Tabs -->
@@ -87,7 +179,7 @@ include 'db_connection.php';
   <div class="main-content">
     <!-- Long Video Section -->
     <div class="video-thumbnail">
-      <img src="long_video.jpg" alt="Main Video" class="large-video">
+      <img src="long_video.jpg" alt="Main Video">
       <h3>EP-1055: Popular Show</h3>
     </div>
 
@@ -95,29 +187,20 @@ include 'db_connection.php';
     <div class="shorts-section">
       <h2>Shorts</h2>
       <div class="shorts-grid">
-        <div class="short">
-          <img src="short_video_1.jpg" alt="Short 1">
-        </div>
-        <div class="short">
-          <img src="short_video_2.jpg" alt="Short 2">
-        </div>
-        <div class="short">
-          <img src="short_video_3.jpg" alt="Short 3">
-        </div>
+        <img src="short_video_1.jpg" alt="Short 1">
+        <img src="short_video_2.jpg" alt="Short 2">
+        <img src="short_video_3.jpg" alt="Short 3">
       </div>
     </div>
   </div>
 
   <!-- Bottom Navigation Bar -->
   <div class="bottom-nav">
-    <button>Home</button>
-    <button>Shorts</button>
-    <button>+</button>
-    <button>Subscriptions</button>
-    <button>Library</button>
+    <button><img src="home_icon.png" alt="Home"></button>
+    <button><img src="shorts_icon.png" alt="Shorts"></button>
+    <button><img src="add_icon.png" alt="Add"></button>
+    <button><img src="subscriptions_icon.png" alt="Subscriptions"></button>
+    <button><img src="library_icon.png" alt="Library"></button>
   </div>
-
-  <!-- Link to JavaScript -->
-  <script src="script.js"></script>
 </body>
 </html>
